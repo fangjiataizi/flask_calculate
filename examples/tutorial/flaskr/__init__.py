@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask
+from flask import Flask, render_template, request
 
 
 def create_app(test_config=None):
@@ -28,7 +28,7 @@ def create_app(test_config=None):
 
     @app.route("/hello")
     def hello():
-        return "Hello, World!"
+        return "Hello, World"
 
     # register the database commands
     from . import db

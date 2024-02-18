@@ -7,16 +7,37 @@
 <!--  {% endif %}-->
 {% endblock %}
 
+<!--{% block content %}-->
+<!--  {% for post in posts %}-->
+<!--    <article class="post">-->
+<!--      <header>-->
+<!--        <div>-->
+<!--          <h1>{{ post['title'] }}</h1>-->
+<!--          <div class="about">by {{ post['username'] }} on {{ post['created'].strftime('%Y-%m-%d') }}</div>-->
+<!--        </div>-->
+<!--        {% if g.user['id'] == post['author_id'] %}-->
+<!--          <a class="action" href="{{ url_for('blog.update', id=post['id']) }}">Edit</a>-->
+<!--        {% endif %}-->
+<!--      </header>-->
+<!--      <p class="body">{{ post['body'] }}</p>-->
+<!--    </article>-->
+<!--    {% if not loop.last %}-->
+<!--      <hr>-->
+<!--    {% endif %}-->
+<!--  {% endfor %}-->
+<!--{% endblock %}-->
+
+
 {% block content %}
-  <form method="post" action="{{ url_for('blog.result') }}" enctype="multipart/form-data">
+  <form method="post">
     <label for="alpha">返矿配比:</label><br>
     <input type="text" id="alpha" name="alpha" value="0.155"><br>
     <label for="pp_S">入炉结构:</label><br>
     <input type="text" id="pp_S" name="pp_S" value="90"><br>
     <input type="text" id="pp_Q" name="pp_Q" value="5"><br>
     <input type="text" id="pp_K" name="pp_K" value="5"><br>
-    <label for="df">上传原料成分配置表:</label><br>
-    <input type="file" id="df" name="df" accept=".xlsx" required><br>
+    <label for="df">输入2:</label><br>
+    <input type="file" id="df" name="df" accept=".xlsx"><br>
     <label for="P_v">配比P:</label><br>
     <textarea id="P_v" name="P_v" rows="4" cols="50">
   0.2,
@@ -38,7 +59,8 @@
   0,
   0.03,
   0.02,
-  0.03</textarea><br>
+  0.03,
+    </textarea><br>
     <input type="submit" value="Submit">
   </form>
 {% endblock %}

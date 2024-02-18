@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>计算结果</h1>
+
+<h2>成本</h2>
+<p>{{ result }}</p>
+
+<h2>最优组成占比</h2>
+{{ df.to_html()|safe }}
+
+{% endblock %}
